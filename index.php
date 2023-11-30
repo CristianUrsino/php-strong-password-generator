@@ -15,6 +15,9 @@ if(empty($_SESSION['password'])){
     <title>Home</title>
 </head>
 <body>
+    <header>
+        <a href="logout.php" class="btn btn-primary">Logout</a>
+    </header>
     <div class="alert alert-success">
         <h2>
             <?php echo $_SESSION['password']; ?>

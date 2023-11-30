@@ -16,15 +16,50 @@ $error = generatePassword();
     <main>
         <?php
             if($error){
-                echo "<div class="alert alert-danger">$error</div>";
-            }else{
+                echo "<div class='alert alert-danger'>errore</div>";
+            }
         ?>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
-            <input type="number" min="6" max="20" name="passwordLength">
+            <div>
+                <input type="number" min="6" max="20" name="passwordLength">
+            </div>
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="repeatChar" value="" checked>
+                    <label class="form-check-label" for="repeatChar">
+                        No
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" value="1" name="repeatChar">
+                    <label class="form-check-label" for="repeatChar">
+                        Si
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="letters" name="include_letters" checked>
+                    <label class="form-check-label" for="letters">
+                        Lettere
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="numbers" name="include_numbers">
+                    <label class="form-check-label" for="numbers">
+                        Numeri
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="symbols" name="include_symbols">
+                    <label class="form-check-label" for="symbols">
+                        Simboli
+                    </label>
+                </div>
+            </div>
             <button type="submit">Invia</button>
             <button type="reset">Reset</button>
         </form>
-        <?php } ?>
     </main>
 </body>
 </html>
