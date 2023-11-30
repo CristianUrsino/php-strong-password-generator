@@ -1,5 +1,9 @@
-<php
-
+<?php
+// session_start();
+if(empty($_SESSION['password'])){
+    header('Location: generatePassword.php');
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +15,10 @@
     <title>Home</title>
 </head>
 <body>
-    
+    <div class="alert alert-success">
+        <h2>
+            <?php echo $_SESSION['password']; ?>
+        </h2>
+    </div>
 </body>
 </html>

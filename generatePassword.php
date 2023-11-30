@@ -1,5 +1,8 @@
 <?php
-
+// session_start();
+include __DIR__ . '/functions/functions.php';
+$password = generatePassword();
+var_dump($password);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +14,12 @@
     <title>Generate Password</title>
 </head>
 <body>
-    
+    <main>
+        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
+            <input type="number" min="6" max="20" name="passwordLength">
+            <button type="submit">Invia</button>
+            <button type="reset">Reset</button>
+        </form>
+    </main>
 </body>
 </html>
