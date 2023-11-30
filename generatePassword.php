@@ -1,8 +1,7 @@
 <?php
-// session_start();
+session_start();
 include __DIR__ . '/functions/functions.php';
-$password = generatePassword();
-var_dump($password);
+$error = generatePassword();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,11 +14,17 @@ var_dump($password);
 </head>
 <body>
     <main>
+        <?php
+            if($error){
+                echo "<div class="alert alert-danger">$error</div>";
+            }else{
+        ?>
         <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="GET">
             <input type="number" min="6" max="20" name="passwordLength">
             <button type="submit">Invia</button>
             <button type="reset">Reset</button>
         </form>
+        <?php } ?>
     </main>
 </body>
 </html>
